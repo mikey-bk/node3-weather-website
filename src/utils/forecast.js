@@ -12,10 +12,13 @@ const forecast = (latitude, longitude, callback) => {
             const temp = body.currently.temperature;
             const proba = body.currently.precipProbability;    
     
-            callback(undefined, `${body.daily.data[0].summary}. It is currently ${temp} degrees out. There is a ${proba*100}% chance of rain.`);
+            callback(undefined, `${body.daily.data[0].summary} It is currently ${temp} degrees out. There is a ${proba*100}% chance of rain.
+            Temperature range: ${body.daily.data[0].temperatureHigh} / ${body.daily.data[0].temperatureLow}. 
+            Tomorrow: ${body.daily.data[1].summary} Temperatures: ${body.daily.data[1].temperatureHigh} / ${body.daily.data[1].temperatureLow}`);
         }
     });
 
 };
+
 
 module.exports = forecast;
